@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Quala.SucursalService.Infrastructure.Data.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace Quala.SucursalService.Infrastructure;
 public static class InfrastructureServiceExtensions
@@ -19,15 +21,26 @@ public static class InfrastructureServiceExtensions
     ConfigurationManager config,
     ILogger logger)
   {
-    string? connectionString = config.GetConnectionString("SqliteConnection");
+    string? connectionString = config.GetConnectionString("DefaultConnection");
     Guard.Against.Null(connectionString);
-    services.AddDbContext<AppDbContext>(options =>
-     options.UseSqlite(connectionString));
+    services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+    //services.AddIdentityCore<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+    services.AddIdentity<ApplicationUser, ApplicationRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
 
     services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
     services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
+
+    services.AddScoped<IHeadquartersRepository, HeadquartersRepository>();
+
+
     services.AddScoped<IListContributorsQueryService, ListContributorsQueryService>();
     services.AddScoped<IDeleteContributorService, DeleteContributorService>();
+
+
 
     services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
 

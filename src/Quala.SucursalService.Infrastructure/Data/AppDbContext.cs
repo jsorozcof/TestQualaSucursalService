@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
     _dispatcher = dispatcher;
   }
 
-  public DbSet<Contributor> Contributors => Set<Contributor>();
+
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

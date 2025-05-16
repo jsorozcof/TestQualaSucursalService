@@ -10,8 +10,16 @@ using Quala.SucursalService.UseCases.Contributors.Create;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using MediatR;
+using FluentValidation;
 using Serilog;
 using Serilog.Extensions.Logging;
+using Quala.SucursalService.Web.Common;
+using Quala.SucursalService.Core.CurrencyAggregate;
+using Quala.SucursalService.UseCases.Headquarters.Upsert;
+using Quala.SucursalService.Core.HeadquartersAggregate;
+using Microsoft.EntityFrameworkCore;
+using Ardalis.GuardClauses;
+using Quala.SucursalService.Web;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -40,7 +48,10 @@ builder.Services.AddFastEndpoints()
                 });
 
 ConfigureMediatR();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Guard.Against.Null(connectionString, nameof(connectionString));
 
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
 
 if (builder.Environment.IsDevelopment())
@@ -48,6 +59,7 @@ if (builder.Environment.IsDevelopment())
   // Use a local test email server
   // See: https://ardalis.com/configuring-a-local-test-email-server/
   builder.Services.AddScoped<IEmailSender, MimeKitEmailSender>();
+  builder.Services.AddScoped<IHeadquartersRepository, HeadquartersRepository>();
 
   // Otherwise use this:
   //builder.Services.AddScoped<IEmailSender, FakeEmailSender>();
@@ -57,6 +69,12 @@ else
 {
   builder.Services.AddScoped<IEmailSender, MimeKitEmailSender>();
 }
+
+// Register FluentValidation validators
+//builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddScoped<ValidationRequestService>();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>(ServiceLifetime.Transient);
+
 
 var app = builder.Build();
 
@@ -80,7 +98,7 @@ SeedDatabase(app);
 
 app.Run();
 
-static void SeedDatabase(WebApplication app)
+static async void SeedDatabase(WebApplication app)
 {
   using var scope = app.Services.CreateScope();
   var services = scope.ServiceProvider;
@@ -90,7 +108,8 @@ static void SeedDatabase(WebApplication app)
     var context = services.GetRequiredService<AppDbContext>();
     //          context.Database.Migrate();
     context.Database.EnsureCreated();
-    SeedData.Initialize(services);
+    //SeedData.Initialize(services);
+    await SeedData.InitializeAsync(scope.ServiceProvider);
   }
   catch (Exception ex)
   {
@@ -104,7 +123,10 @@ void ConfigureMediatR()
   var mediatRAssemblies = new[]
 {
   Assembly.GetAssembly(typeof(Contributor)), // Core
-  Assembly.GetAssembly(typeof(CreateContributorCommand)) // UseCases
+  Assembly.GetAssembly(typeof(TbCurrency)),
+  Assembly.GetAssembly(typeof(TbHeadquarters)),
+  Assembly.GetAssembly(typeof(CreateContributorCommand)), // UseCases
+   Assembly.GetAssembly(typeof(UpsertHeadquartersCommand))
 };
   builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies!));
   builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
