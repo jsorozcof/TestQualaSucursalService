@@ -7,9 +7,6 @@ using Ardalis.Specification;
 
 namespace Quala.SucursalService.Core.HeadquartersAggregate.Specifications;
 
-/// <summary>
-/// verifico si el codigo de la sucursal existe para no crear duplicados
-/// </summary>
 public class GetHeadquarterByCodeSpec : Specification<TbHeadquarters>
 {
   public GetHeadquarterByCodeSpec(int code)

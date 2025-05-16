@@ -20,6 +20,11 @@ using Quala.SucursalService.Core.HeadquartersAggregate;
 using Microsoft.EntityFrameworkCore;
 using Ardalis.GuardClauses;
 using Quala.SucursalService.Web;
+using FluentValidation.AspNetCore;
+using Quala.SucursalService.UseCases.Contributors;
+using Quala.SucursalService.UseCases.Headquarters.List;
+using Quala.SucursalService.Core.HeadquartersAggregate.Dto;
+using Quala.SucursalService.Infrastructure.Mapping;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -71,8 +76,10 @@ else
 }
 
 // Register FluentValidation validators
-//builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddScoped<ValidationRequestService>();
+//builder.Services.AddAutoMapper(typeof(GetAllHeadquartersDto));
+builder.Services.AddAutoMapper(typeof(HeadquartersMappingProfile));
 builder.Services.AddValidatorsFromAssemblyContaining<Program>(ServiceLifetime.Transient);
 
 

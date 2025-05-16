@@ -2,6 +2,7 @@
 using Ardalis.SharedKernel;
 using Quala.SucursalService.Core.ContributorAggregate;
 using Microsoft.EntityFrameworkCore;
+using Quala.SucursalService.Core.HeadquartersAggregate;
 
 namespace Quala.SucursalService.Infrastructure.Data;
 public class AppDbContext : DbContext
@@ -19,7 +20,11 @@ public class AppDbContext : DbContext
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
-    base.OnModelCreating(modelBuilder);
+    modelBuilder.Entity<TbHeadquarters>()
+    .HasOne(h => h.Moneda)
+    .WithMany(c => c.Headquarters)
+    .HasForeignKey(h => h.Moneda_Id);
+
     modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
   }
 
@@ -43,4 +48,6 @@ public class AppDbContext : DbContext
 
   public override int SaveChanges() =>
         SaveChangesAsync().GetAwaiter().GetResult();
+
+
 }

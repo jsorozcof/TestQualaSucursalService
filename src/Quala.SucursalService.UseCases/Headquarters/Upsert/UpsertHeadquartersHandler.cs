@@ -30,11 +30,11 @@ public class UpsertHeadquartersHandler : ICommandHandler<UpsertHeadquartersComma
         Descripcion = req.Descripcion,
         Direccion = req.Direccion,
         Identificacion = req.Identificacion,
-        Fecha_Creacion = req.FechaCreacion,
+        Fecha_Creacion = DateTime.UtcNow, // req.FechaCreacion,
         Moneda_Id = req.MonedaId
       };
 
-      var (status, code) = await _repository.UpsertHeadquarterAsync(setEntity);
+      var (status, code, message) = await _repository.UpsertHeadquarterAsync(setEntity);
 
       if (status)
         return Result.Success(); 

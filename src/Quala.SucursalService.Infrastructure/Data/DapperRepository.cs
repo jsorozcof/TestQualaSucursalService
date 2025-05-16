@@ -18,24 +18,29 @@ public class DapperRepository<T> : IDapperRepository<T>
 
   }
 
-  private async Task<bool> ExecuteAsync(string storedProcedure, object parameters)
+  public Task DeleteAsync(string storedProcedure, object parameters)
+  {
+    throw new NotImplementedException();
+  }
+
+  public async Task<(bool success, string message)> ExecuteWithMessageAsync(string storedProcedure, DynamicParameters parameters)
   {
     try
     {
       using var connection = new SqlConnection(_connectionString);
-      int affectedRows = await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+      await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
 
-      return affectedRows > 0;
+      string message = parameters.Get<string>("@Resultado");
+
+      return (!string.IsNullOrEmpty(message) && !message.StartsWith("Error"), message);
     }
     catch (SqlException ex)
     {
-      Console.WriteLine($"Error en SQL: {ex.Message}");
-      return false;
+      return (false, $"Error en SQL: {ex.Message}");
     }
     catch (Exception ex)
     {
-      Console.WriteLine($"Error inesperado: {ex.Message}");
-      return false;
+      return (false, $"Error inesperado: {ex.Message}");
     }
   }
 
@@ -70,10 +75,17 @@ public class DapperRepository<T> : IDapperRepository<T>
     }
   }
 
-  public async Task<bool> UpsertAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
-  public async Task InsertAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
+  public Task UpdateAsync(string storedProcedure, object parameters)
+  {
+    throw new NotImplementedException();
+  }
 
-  public async Task UpdateAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
+  public async Task<bool> UpsertAsync(string storedProcedure, DynamicParameters parameters)
+      => (await ExecuteWithMessageAsync(storedProcedure, parameters)).success;
 
-  public async Task DeleteAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
+  //public async Task InsertAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
+
+  //public async Task UpdateAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
+
+  //public async Task DeleteAsync(string storedProcedure, object parameters) => await ExecuteAsync(storedProcedure, parameters);
 }

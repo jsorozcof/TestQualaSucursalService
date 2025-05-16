@@ -1,16 +1,15 @@
-﻿namespace Quala.SucursalService.Web.Headquarters;
-
-
-public class UpsertHeadquarterRequest
+﻿namespace Quala.SucursalService.UseCases.Headquarters.List;
+public class ListHeadquartersDto
 {
-  public const string Route = "/Headquarter/CreateOrUpdate";
-
   public int Codigo { get; set; }
   public string Descripcion { get; set; } = string.Empty;
   public string Direccion { get; set; } = string.Empty;
   public string Identificacion { get; set; } = string.Empty;
   public DateTime FechaCreacion { get; set; }
+  public string Moneda { get; set; } = string.Empty;
   public int MonedaId { get; set; }
+
+  
 
 
 }

@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Ardalis.Result;
+using Ardalis.SharedKernel;
+
+namespace Quala.SucursalService.UseCases.Headquarters.List;
+
+public record ListHeadquartersQuery : IQuery<Result<IEnumerable<ListHeadquartersDto>>>;

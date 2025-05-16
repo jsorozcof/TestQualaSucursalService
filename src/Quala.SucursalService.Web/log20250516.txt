@@ -1,0 +1,1246 @@
+2025-05-16 04:31:15.930 -05:00 [INF] Registered 6 endpoints in 1.549 milliseconds.
+2025-05-16 04:31:19.765 -05:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 04:31:20.000 -05:00 [INF] Executed DbCommand (218ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 04:31:20.088 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 04:31:20.841 -05:00 [INF] Executed DbCommand (90ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 04:31:21.009 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 04:31:21.047 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 04:31:21.047 -05:00 [INF] Hosting environment: Development
+2025-05-16 04:31:21.047 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 04:31:21.146 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 04:31:21.701 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:31:21.744 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 04:31:21.744 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 602.0918ms
+2025-05-16 04:31:21.815 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:31:22.043 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 298.9176ms
+2025-05-16 04:31:22.104 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 04:31:22.220 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 7.6605ms
+2025-05-16 04:31:22.316 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 04:31:22.399 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 82.6212ms
+2025-05-16 04:31:22.814 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 04:31:23.099 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:31:23.149 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 04:31:24.067 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1254.7792ms
+2025-05-16 04:36:01.647 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 230
+2025-05-16 04:36:01.694 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:36:01.697 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 04:36:01.704 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:36:38.127 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:36:38.458 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'FluentValidation.IValidator`1[Quala.SucursalService.Web.Headquarters.UpsertHeadquarterRequest]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Quala.SucursalService.Web.Common.ValidationRequestService.ValidateAsync[T](T request, CancellationToken cancellationToken) in C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web\Common\ValidationRequestService.cs:line 16
+   at Quala.SucursalService.Web.Headquarters.Upsert.HandleAsync(UpsertHeadquarterRequest req, CancellationToken ct) in C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web\Headquarters\Upsert.cs:line 36
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-05-16 04:36:40.386 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 500 null text/plain; charset=utf-8 38744.3173ms
+2025-05-16 04:41:56.214 -05:00 [INF] Registered 6 endpoints in 1.119 milliseconds.
+2025-05-16 04:41:58.478 -05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 04:41:58.596 -05:00 [INF] Executed DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 04:41:58.650 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 04:41:59.179 -05:00 [INF] Executed DbCommand (61ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 04:41:59.301 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 04:41:59.338 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 04:41:59.338 -05:00 [INF] Hosting environment: Development
+2025-05-16 04:41:59.338 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 04:41:59.420 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 04:41:59.753 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:41:59.787 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 371.5023ms
+2025-05-16 04:41:59.799 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 04:41:59.846 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:42:00.030 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 231.3451ms
+2025-05-16 04:42:00.198 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 04:42:00.268 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 67.7296ms
+2025-05-16 04:42:00.269 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 04:42:00.367 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 98.4925ms
+2025-05-16 04:42:00.990 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 04:42:01.119 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:42:01.151 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 04:42:01.878 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 887.7919ms
+2025-05-16 04:42:45.370 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 230
+2025-05-16 04:42:45.417 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:42:46.058 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 04:42:46.112 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:43:21.038 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:43:21.187 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'FluentValidation.IValidator`1[Quala.SucursalService.Web.Headquarters.UpsertHeadquarterRequest]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Quala.SucursalService.Web.Common.ValidationRequestService.ValidateAsync[T](T request, CancellationToken cancellationToken) in C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web\Common\ValidationRequestService.cs:line 16
+   at Quala.SucursalService.Web.Headquarters.Upsert.HandleAsync(UpsertHeadquarterRequest req, CancellationToken ct) in C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web\Headquarters\Upsert.cs:line 36
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-05-16 04:43:21.246 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 500 null text/plain; charset=utf-8 35929.601ms
+2025-05-16 04:53:26.752 -05:00 [INF] Registered 6 endpoints in 1.452 milliseconds.
+2025-05-16 04:53:29.126 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 04:53:29.220 -05:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 04:53:29.288 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 04:53:30.010 -05:00 [INF] Executed DbCommand (69ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 04:53:30.161 -05:00 [INF] Executed DbCommand (43ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 04:53:30.175 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 04:53:30.176 -05:00 [INF] Hosting environment: Development
+2025-05-16 04:53:30.176 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 04:53:30.268 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 04:53:30.654 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:53:30.687 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 04:53:30.687 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 426.7968ms
+2025-05-16 04:53:30.738 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:53:30.912 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 225.0038ms
+2025-05-16 04:53:31.276 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 04:53:31.279 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 04:53:31.289 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 15.1253ms
+2025-05-16 04:53:31.372 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.7278ms
+2025-05-16 04:53:32.038 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 04:53:32.101 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:53:32.133 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 04:53:32.944 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 906.6564ms
+2025-05-16 04:53:50.699 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 230
+2025-05-16 04:53:50.808 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:53:50.874 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 04:53:51.053 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:54:56.594 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 04:54:56.598 -05:00 [INF] Property Codigo : 201114
+2025-05-16 04:54:56.599 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 04:54:56.600 -05:00 [INF] Property Direccion :  Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 04:54:56.600 -05:00 [INF] Property Identificacion : 1023154744
+2025-05-16 04:54:56.601 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 04:54:56.603 -05:00 [INF] Property MonedaId : 1
+2025-05-16 04:55:01.107 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 4503 ms
+2025-05-16 04:55:10.849 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:55:10.860 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 80161.6529ms
+2025-05-16 04:56:55.121 -05:00 [INF] Registered 6 endpoints in 765 milliseconds.
+2025-05-16 04:56:56.856 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 04:56:57.075 -05:00 [INF] Executed DbCommand (207ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 04:56:57.221 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 04:56:57.789 -05:00 [INF] Executed DbCommand (44ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 04:56:57.886 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 04:56:57.886 -05:00 [INF] Hosting environment: Development
+2025-05-16 04:56:57.886 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 04:56:57.910 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 04:56:57.931 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 04:56:58.269 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:56:58.400 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 04:56:58.411 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 478.2786ms
+2025-05-16 04:56:58.457 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:56:58.585 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 184.7402ms
+2025-05-16 04:56:58.626 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 04:56:58.630 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 04:56:58.633 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 5.5693ms
+2025-05-16 04:56:58.680 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.5498ms
+2025-05-16 04:56:58.923 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 04:56:58.963 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:56:59.415 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 04:57:00.160 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1237.0645ms
+2025-05-16 04:57:28.534 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 230
+2025-05-16 04:57:28.574 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 04:57:28.576 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 04:57:28.578 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:57:28.681 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 04:57:28.682 -05:00 [INF] Property Codigo : 201114
+2025-05-16 04:57:28.682 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 04:57:28.682 -05:00 [INF] Property Direccion :  Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 04:57:28.682 -05:00 [INF] Property Identificacion : 1023154744
+2025-05-16 04:57:28.683 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 04:57:28.685 -05:00 [INF] Property MonedaId : 1
+2025-05-16 04:58:52.454 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 83768 ms
+2025-05-16 04:58:53.817 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 04:58:53.823 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 85289.0309ms
+2025-05-16 05:09:49.998 -05:00 [INF] Registered 6 endpoints in 2.906 milliseconds.
+2025-05-16 05:09:52.819 -05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 05:09:52.899 -05:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 05:09:52.957 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 05:09:53.468 -05:00 [INF] Executed DbCommand (62ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 05:09:53.599 -05:00 [INF] Executed DbCommand (31ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 05:09:53.651 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 05:09:53.652 -05:00 [INF] Hosting environment: Development
+2025-05-16 05:09:53.652 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 05:09:53.890 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 05:09:54.258 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:09:54.292 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 407.6301ms
+2025-05-16 05:09:54.302 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 05:09:54.343 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:09:54.507 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 205.3466ms
+2025-05-16 05:09:54.893 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 05:09:54.900 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 05:09:54.943 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 7.344ms
+2025-05-16 05:09:55.157 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 256.578ms
+2025-05-16 05:09:55.754 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 05:09:55.804 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:09:55.875 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 05:09:56.808 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1054.5516ms
+2025-05-16 05:11:23.386 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:11:23.430 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:11:23.432 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 05:11:23.437 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:11:23.549 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:11:23.551 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:11:23.552 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:11:23.552 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:11:23.552 -05:00 [INF] Property Identificacion : 1023154744
+2025-05-16 05:11:23.554 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:11:23.555 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:23:39.827 -05:00 [INF] Registered 6 endpoints in 1.265 milliseconds.
+2025-05-16 05:23:42.059 -05:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 05:23:42.233 -05:00 [INF] Executed DbCommand (159ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 05:23:42.292 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 05:23:42.903 -05:00 [INF] Executed DbCommand (119ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 05:23:43.057 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 05:23:43.058 -05:00 [INF] Hosting environment: Development
+2025-05-16 05:23:43.058 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 05:23:43.073 -05:00 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 05:23:43.160 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 05:23:43.652 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:23:43.692 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 05:23:43.692 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 542.5433ms
+2025-05-16 05:23:43.736 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:23:43.918 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 227.5577ms
+2025-05-16 05:23:44.042 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 05:23:44.066 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 22.533ms
+2025-05-16 05:23:44.082 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 05:23:44.162 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.1215ms
+2025-05-16 05:23:44.451 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 05:23:44.498 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:23:44.532 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 05:23:45.282 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 831.2501ms
+2025-05-16 05:23:59.853 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:23:59.896 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:23:59.899 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 05:23:59.901 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:24:00.027 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:24:00.027 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:24:00.028 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:24:00.028 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:24:00.028 -05:00 [INF] Property Identificacion : 1023154744
+2025-05-16 05:24:00.029 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:24:00.031 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:24:51.203 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 51171 ms
+2025-05-16 05:24:51.222 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:24:51.226 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 51374.2539ms
+2025-05-16 05:28:38.727 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:28:38.760 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:28:38.761 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:28:38.769 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:28:38.769 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:28:38.770 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:28:38.770 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:28:38.770 -05:00 [INF] Property Identificacion : 1023154356
+2025-05-16 05:28:38.770 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:28:38.770 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:28:56.714 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 17943 ms
+2025-05-16 05:28:56.715 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:28:56.715 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 17990.985ms
+2025-05-16 05:39:39.683 -05:00 [INF] Registered 6 endpoints in 1.748 milliseconds.
+2025-05-16 05:40:01.791 -05:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 05:40:02.091 -05:00 [INF] Executed DbCommand (286ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 05:40:02.152 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 05:40:02.990 -05:00 [INF] Executed DbCommand (129ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 05:40:03.115 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 05:40:03.116 -05:00 [INF] Hosting environment: Development
+2025-05-16 05:40:03.116 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 05:40:03.143 -05:00 [INF] Executed DbCommand (32ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 05:40:03.220 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 05:40:03.595 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:40:03.634 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 05:40:03.638 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 428.976ms
+2025-05-16 05:40:03.679 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:40:03.868 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 233.8293ms
+2025-05-16 05:40:04.354 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 05:40:04.366 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 11.2996ms
+2025-05-16 05:40:04.382 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 05:40:04.453 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.9523ms
+2025-05-16 05:40:04.656 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 05:40:04.702 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:40:04.725 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 05:40:05.905 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1249.2862ms
+2025-05-16 05:40:30.162 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:40:34.231 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:40:34.275 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 05:40:34.284 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:40:34.425 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:40:34.426 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:40:34.426 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:40:34.426 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:40:34.426 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 05:40:34.427 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:40:34.429 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:41:35.827 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 61381 ms
+2025-05-16 05:41:35.854 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:41:35.856 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 65696.4394ms
+2025-05-16 05:46:29.489 -05:00 [INF] Registered 6 endpoints in 1.842 milliseconds.
+2025-05-16 05:46:31.895 -05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 05:46:32.530 -05:00 [INF] Executed DbCommand (625ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 05:46:32.590 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 05:46:33.542 -05:00 [INF] Executed DbCommand (68ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 05:46:33.647 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 05:46:33.761 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 05:46:33.761 -05:00 [INF] Hosting environment: Development
+2025-05-16 05:46:33.761 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 05:46:33.863 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 05:46:34.340 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:46:34.367 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 05:46:34.380 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 520.1302ms
+2025-05-16 05:46:34.406 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:46:34.616 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 248.4381ms
+2025-05-16 05:46:34.902 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 05:46:34.918 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 10.4237ms
+2025-05-16 05:46:34.982 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 05:46:35.097 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 114.7064ms
+2025-05-16 05:46:35.354 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 05:46:35.430 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:46:35.462 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 05:46:36.155 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 800.5672ms
+2025-05-16 05:46:45.260 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:46:45.300 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:46:45.304 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 05:46:45.307 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:46:45.440 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:46:45.440 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:46:45.441 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:46:45.441 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:46:45.441 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 05:46:45.442 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:46:45.443 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:46:45.728 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 284 ms
+2025-05-16 05:46:46.229 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:46:46.232 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 974.0087ms
+2025-05-16 05:47:04.114 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:47:04.150 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:47:04.150 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:47:04.152 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:47:04.153 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:47:04.153 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:47:04.154 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:47:04.154 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 05:47:04.155 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:47:04.155 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:47:04.319 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 163 ms
+2025-05-16 05:47:04.322 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:47:04.322 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 208.3218ms
+2025-05-16 05:47:38.274 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:47:38.314 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:47:38.314 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:47:38.316 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:47:38.317 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:47:38.317 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:47:38.317 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:47:38.317 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 05:47:38.317 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:47:38.317 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:47:38.545 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 228 ms
+2025-05-16 05:47:38.546 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:47:38.546 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 272ms
+2025-05-16 05:48:02.839 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:48:02.894 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:48:02.894 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:48:13.413 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:48:13.413 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:48:13.413 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:48:13.414 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:48:13.414 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 05:48:13.414 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:48:13.414 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:48:16.104 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 2689 ms
+2025-05-16 05:48:27.919 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:48:27.920 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 25080.7942ms
+2025-05-16 05:50:16.524 -05:00 [INF] Registered 6 endpoints in 1.293 milliseconds.
+2025-05-16 05:50:40.053 -05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 05:50:40.143 -05:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 05:50:40.190 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 05:50:40.868 -05:00 [INF] Executed DbCommand (57ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 05:50:41.010 -05:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 05:50:41.078 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 05:50:41.078 -05:00 [INF] Hosting environment: Development
+2025-05-16 05:50:41.078 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 05:50:41.159 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 05:50:41.559 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:50:41.584 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 05:50:41.597 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 439.7182ms
+2025-05-16 05:50:41.634 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:50:41.804 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 219.5671ms
+2025-05-16 05:50:41.848 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 05:50:41.860 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 10.6156ms
+2025-05-16 05:50:41.924 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 05:50:41.972 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.708ms
+2025-05-16 05:50:42.716 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 05:50:42.764 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:50:42.792 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 05:50:43.589 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 872.9068ms
+2025-05-16 05:51:14.936 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 05:51:14.977 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 05:51:14.980 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 05:51:14.983 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:51:44.221 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 05:51:44.226 -05:00 [INF] Property Codigo : 201114
+2025-05-16 05:51:44.226 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 05:51:44.227 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 05:51:44.227 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 05:51:44.228 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 05:51:44.229 -05:00 [INF] Property MonedaId : 1
+2025-05-16 05:52:29.187 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 44955 ms
+2025-05-16 05:52:29.224 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 05:52:29.227 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 74291.4207ms
+2025-05-16 06:05:22.995 -05:00 [INF] Registered 6 endpoints in 2.162 milliseconds.
+2025-05-16 06:05:25.370 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 06:05:25.499 -05:00 [INF] Executed DbCommand (119ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 06:05:25.528 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 06:05:26.299 -05:00 [INF] Executed DbCommand (58ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 06:05:26.400 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 06:05:26.446 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 06:05:26.446 -05:00 [INF] Hosting environment: Development
+2025-05-16 06:05:26.446 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 06:05:26.523 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 06:05:26.884 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 06:05:26.979 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 463.5634ms
+2025-05-16 06:05:27.055 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 06:05:27.094 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 06:05:27.334 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 278.509ms
+2025-05-16 06:05:27.616 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 06:05:27.617 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 06:05:27.622 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 3.7865ms
+2025-05-16 06:05:27.696 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.4756ms
+2025-05-16 06:05:28.641 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 06:05:28.687 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 06:05:28.700 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 06:05:29.635 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 994.3308ms
+2025-05-16 06:07:33.470 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 229
+2025-05-16 06:07:33.562 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 06:07:33.566 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 06:07:33.569 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 06:07:58.617 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 06:07:58.625 -05:00 [INF] Property Codigo : 201114
+2025-05-16 06:07:58.625 -05:00 [INF] Property Descripcion : Quala Distrito Bogotá
+2025-05-16 06:07:58.625 -05:00 [INF] Property Direccion : Carrera 68D # 39F-20 Sur. Bogotá D.C. Colombia.
+2025-05-16 06:07:58.625 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 06:07:58.626 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 06:07:58.628 -05:00 [INF] Property MonedaId : 1
+2025-05-16 06:08:43.162 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 44533 ms
+2025-05-16 06:08:43.199 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 06:08:43.202 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 69801.8636ms
+2025-05-16 07:25:00.706 -05:00 [INF] Registered 6 endpoints in 7.190 milliseconds.
+2025-05-16 07:25:30.467 -05:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 07:25:30.865 -05:00 [INF] Executed DbCommand (387ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 07:25:30.906 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 07:25:31.707 -05:00 [INF] Executed DbCommand (261ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 07:25:31.848 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 07:25:31.848 -05:00 [INF] Hosting environment: Development
+2025-05-16 07:25:31.848 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 07:25:31.873 -05:00 [INF] Executed DbCommand (31ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 07:25:31.929 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 07:25:32.570 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:25:32.777 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 07:25:32.781 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 859.3324ms
+2025-05-16 07:25:32.824 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:25:32.990 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 213.4992ms
+2025-05-16 07:25:33.312 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 07:25:33.312 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 07:25:33.338 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 12.356ms
+2025-05-16 07:25:33.573 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 260.4129ms
+2025-05-16 07:25:33.780 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 07:25:33.832 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:25:33.856 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 07:25:35.275 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1495.7491ms
+2025-05-16 07:26:20.960 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 244
+2025-05-16 07:26:21.003 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:26:21.006 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 07:26:21.009 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:26:32.366 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 07:26:32.526 -05:00 [INF] Property Codigo : 201115
+2025-05-16 07:26:32.527 -05:00 [INF] Property Descripcion : QUALA DISTRITO MEDELLÍN
+2025-05-16 07:26:32.527 -05:00 [INF] Property Direccion : Calle 2 # 50-243 Barrio Guayabal. Medellín, Antioquia
+2025-05-16 07:26:32.528 -05:00 [INF] Property Identificacion : 1023154101
+2025-05-16 07:26:32.669 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 07:26:32.671 -05:00 [INF] Property MonedaId : 2
+2025-05-16 07:27:06.746 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 34074 ms
+2025-05-16 07:27:06.780 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:27:06.782 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 45823.2167ms
+2025-05-16 07:29:48.590 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 238
+2025-05-16 07:29:48.625 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:29:48.625 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:29:48.988 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:29:48.988 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 400 null application/problem+json 400.2269ms
+2025-05-16 07:29:58.707 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 223
+2025-05-16 07:29:58.749 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:29:58.749 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:29:58.781 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:29:58.781 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 74.24ms
+2025-05-16 07:32:23.583 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 312
+2025-05-16 07:32:23.611 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:32:23.611 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:32:23.616 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:32:23.617 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 39.1781ms
+2025-05-16 07:37:26.200 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - application/json 236
+2025-05-16 07:37:26.316 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 07:37:26.316 -05:00 [INF] Executing endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:37:28.566 -05:00 [INF] Handling UpsertHeadquartersCommand
+2025-05-16 07:37:28.568 -05:00 [INF] Property Codigo : 201114
+2025-05-16 07:37:28.568 -05:00 [INF] Property Descripcion : OFICINA CENTRAL (VENECIA)
+2025-05-16 07:37:28.568 -05:00 [INF] Property Direccion : carrera 68D #39F – 51 sur Bogotá, Colombia
+2025-05-16 07:37:28.568 -05:00 [INF] Property Identificacion : 1023154000
+2025-05-16 07:37:28.569 -05:00 [INF] Property FechaCreacion : "2025-05-16T09:31:32.5070000Z"
+2025-05-16 07:37:28.570 -05:00 [INF] Property MonedaId : 1
+2025-05-16 07:37:33.119 -05:00 [INF] Handled UpsertHeadquartersCommand with Ardalis.Result.Result in 4548 ms
+2025-05-16 07:37:33.120 -05:00 [INF] Executed endpoint 'HTTP: POST /Headquarter/CreateOrUpdate'
+2025-05-16 07:37:33.121 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Headquarter/CreateOrUpdate - 200 null application/json 6921.8022ms
+2025-05-16 09:28:20.626 -05:00 [INF] Registered 7 endpoints in 1.845 milliseconds.
+2025-05-16 09:28:40.429 -05:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 09:28:40.682 -05:00 [INF] Executed DbCommand (237ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 09:28:40.722 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 09:28:59.760 -05:00 [INF] Executed DbCommand (11,305ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 09:29:03.959 -05:00 [INF] Executed DbCommand (1,544ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 09:29:04.171 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 09:29:04.171 -05:00 [INF] Hosting environment: Development
+2025-05-16 09:29:04.171 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 09:29:04.341 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 09:29:04.936 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:29:05.011 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 683.8205ms
+2025-05-16 09:29:05.054 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 09:29:05.124 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:29:05.320 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 265.974ms
+2025-05-16 09:29:06.087 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 09:29:06.098 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 6.7132ms
+2025-05-16 09:29:06.109 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 09:29:06.226 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.349ms
+2025-05-16 09:29:06.757 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 09:29:06.803 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:29:06.826 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 09:29:08.402 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1645.973ms
+2025-05-16 09:30:20.420 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 09:30:20.453 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:30:20.458 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 09:30:20.462 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 09:31:16.782 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 09:31:21.180 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 4397 ms
+2025-05-16 09:35:20.157 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 09:35:20.243 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 85 ms
+2025-05-16 09:47:52.551 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 09:52:51.487 -05:00 [INF] Registered 7 endpoints in 2.360 milliseconds.
+2025-05-16 09:53:12.403 -05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 09:53:12.576 -05:00 [INF] Executed DbCommand (162ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 09:53:12.605 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 09:53:13.161 -05:00 [INF] Executed DbCommand (62ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 09:53:13.546 -05:00 [INF] Executed DbCommand (194ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 09:53:13.642 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 09:53:13.644 -05:00 [INF] Hosting environment: Development
+2025-05-16 09:53:13.644 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 09:53:13.718 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 09:53:14.283 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:53:14.330 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 615.8898ms
+2025-05-16 09:53:14.339 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 09:53:14.384 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:53:14.556 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 217.7746ms
+2025-05-16 09:53:14.708 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 09:53:14.722 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 11.5993ms
+2025-05-16 09:53:14.799 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 09:53:14.879 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.0648ms
+2025-05-16 09:53:15.425 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 09:53:15.478 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:53:15.504 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 09:53:16.392 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 967.194ms
+2025-05-16 09:53:26.904 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 09:53:27.196 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 09:53:27.348 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 09:53:27.358 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 09:53:51.518 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:09:42.909 -05:00 [INF] Registered 7 endpoints in 2.311 milliseconds.
+2025-05-16 10:09:45.728 -05:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 10:09:45.855 -05:00 [INF] Executed DbCommand (117ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 10:09:45.890 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 10:09:46.585 -05:00 [INF] Executed DbCommand (100ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 10:09:46.764 -05:00 [INF] Executed DbCommand (38ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 10:09:46.798 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 10:09:46.798 -05:00 [INF] Hosting environment: Development
+2025-05-16 10:09:46.798 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 10:09:46.923 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 10:09:47.409 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:09:47.441 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 523.148ms
+2025-05-16 10:09:47.453 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 10:09:47.502 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:09:47.882 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 428.6561ms
+2025-05-16 10:09:48.070 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 10:09:48.076 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 3.1743ms
+2025-05-16 10:09:48.101 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 10:09:48.192 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 91.0441ms
+2025-05-16 10:09:48.537 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 10:09:48.837 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:09:48.891 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 10:09:49.776 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1239.3281ms
+2025-05-16 10:19:59.818 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:19:59.871 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:19:59.874 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 10:19:59.877 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:20:08.595 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:20:19.469 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 10873 ms
+2025-05-16 10:20:19.472 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:20:19.474 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/List - 204 null null 19657.0253ms
+2025-05-16 10:22:03.028 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:22:04.240 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:22:04.240 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:22:04.241 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:22:10.416 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 6174 ms
+2025-05-16 10:28:07.009 -05:00 [INF] Registered 7 endpoints in 1.334 milliseconds.
+2025-05-16 10:28:09.878 -05:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 10:28:10.359 -05:00 [INF] Executed DbCommand (468ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 10:28:10.399 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 10:28:11.148 -05:00 [INF] Executed DbCommand (118ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 10:28:11.302 -05:00 [INF] Executed DbCommand (35ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 10:28:11.322 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 10:28:11.322 -05:00 [INF] Hosting environment: Development
+2025-05-16 10:28:11.322 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 10:28:11.413 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 10:28:12.000 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:28:12.048 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 640.4288ms
+2025-05-16 10:28:12.075 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 10:28:12.184 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:28:12.727 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 651.7375ms
+2025-05-16 10:28:12.961 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 10:28:12.981 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 15.8134ms
+2025-05-16 10:28:13.007 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 10:28:13.135 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 128.2399ms
+2025-05-16 10:28:14.001 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 10:28:14.075 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:28:14.100 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 10:28:14.957 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 955.535ms
+2025-05-16 10:31:53.655 -05:00 [INF] Registered 7 endpoints in 1.591 milliseconds.
+2025-05-16 10:31:56.130 -05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 10:31:56.240 -05:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 10:31:56.268 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 10:31:57.768 -05:00 [INF] Executed DbCommand (69ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 10:31:57.895 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 10:31:58.026 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 10:31:58.026 -05:00 [INF] Hosting environment: Development
+2025-05-16 10:31:58.027 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 10:31:58.123 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 10:31:58.490 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:31:58.521 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 10:31:58.529 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 407.2162ms
+2025-05-16 10:31:58.589 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:31:58.775 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 254.5846ms
+2025-05-16 10:31:58.981 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 10:31:59.034 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 6.7478ms
+2025-05-16 10:31:59.160 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 10:31:59.219 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.4671ms
+2025-05-16 10:32:00.153 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 10:32:00.205 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:32:00.359 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 10:32:01.379 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1226.0205ms
+2025-05-16 10:32:07.885 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:32:07.934 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:32:07.936 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 10:32:07.941 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:32:07.992 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:32:08.165 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 173 ms
+2025-05-16 10:32:10.830 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:32:10.832 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/List - 200 null application/json 2947.5789ms
+2025-05-16 10:33:13.609 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:33:13.651 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:33:13.652 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:33:13.652 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:33:13.669 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 16 ms
+2025-05-16 10:33:15.346 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:33:15.346 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/List - 200 null application/json 1737.4795ms
+2025-05-16 10:36:35.788 -05:00 [INF] Registered 7 endpoints in 2.449 milliseconds.
+2025-05-16 10:36:38.116 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 10:36:38.196 -05:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 10:36:38.230 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 10:36:38.850 -05:00 [INF] Executed DbCommand (65ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 10:36:39.006 -05:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 10:36:39.027 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 10:36:39.028 -05:00 [INF] Hosting environment: Development
+2025-05-16 10:36:39.029 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 10:36:39.238 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 10:36:39.681 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:36:39.714 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 10:36:39.716 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 490.7449ms
+2025-05-16 10:36:39.789 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:36:40.024 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 309.2232ms
+2025-05-16 10:36:40.065 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 10:36:40.081 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 13.4831ms
+2025-05-16 10:36:40.156 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 10:36:40.215 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.9771ms
+2025-05-16 10:36:40.870 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 10:36:40.928 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:36:40.969 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 10:36:41.626 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 756.6721ms
+2025-05-16 10:37:36.876 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:37:36.927 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:37:36.929 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 10:37:36.932 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:37:36.989 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:37:37.261 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 271 ms
+2025-05-16 10:38:49.013 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:38:49.015 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/List - 200 null application/json 72139.6512ms
+2025-05-16 10:49:08.629 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:49:10.171 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:49:10.196 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:49:10.319 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:49:11.635 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 1197 ms
+2025-05-16 10:54:36.229 -05:00 [INF] Registered 7 endpoints in 3.062 milliseconds.
+2025-05-16 10:55:23.884 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 10:55:24.158 -05:00 [INF] Executed DbCommand (261ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 10:55:24.208 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 10:55:25.082 -05:00 [INF] Executed DbCommand (251ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 10:55:25.214 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 10:55:25.403 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 10:55:25.403 -05:00 [INF] Hosting environment: Development
+2025-05-16 10:55:25.403 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 10:55:25.501 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 10:55:25.944 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:55:25.976 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 484.9562ms
+2025-05-16 10:55:25.983 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 10:55:26.026 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:55:26.231 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 248.115ms
+2025-05-16 10:55:26.339 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 10:55:26.349 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 6.756ms
+2025-05-16 10:55:26.456 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 10:55:26.577 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 121.1971ms
+2025-05-16 10:55:27.765 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 10:55:27.862 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:55:27.955 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 10:55:28.743 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 978.5496ms
+2025-05-16 10:55:54.725 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 10:55:57.435 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 10:55:57.540 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 10:55:57.599 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:55:57.723 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 10:55:58.013 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 289 ms
+2025-05-16 10:56:59.582 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 10:56:59.584 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/List - 200 null application/json 64858.8404ms
+2025-05-16 12:40:15.729 -05:00 [INF] Registered 8 endpoints in 2.420 milliseconds.
+2025-05-16 12:40:23.701 -05:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-05-16 12:40:35.895 -05:00 [INF] Executed DbCommand (12,178ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-05-16 12:40:35.964 -05:00 [INF] User profile is available. Using 'C:\Users\forozco\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-16 12:40:36.786 -05:00 [INF] Executed DbCommand (182ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-16 12:40:36.938 -05:00 [INF] Executed DbCommand (30ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-16 12:40:36.974 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-16 12:40:36.974 -05:00 [INF] Hosting environment: Development
+2025-05-16 12:40:36.974 -05:00 [INF] Content root path: C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web
+2025-05-16 12:40:37.076 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2025-05-16 12:40:37.558 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 12:40:37.593 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 527.8445ms
+2025-05-16 12:40:37.623 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2025-05-16 12:40:37.660 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 12:40:37.990 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 366.3167ms
+2025-05-16 12:40:38.388 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2025-05-16 12:40:38.388 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-16 12:40:38.397 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 4.6277ms
+2025-05-16 12:40:38.527 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 138.502ms
+2025-05-16 12:40:39.122 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2025-05-16 12:40:42.390 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 12:40:44.938 -05:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-05-16 12:40:55.608 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 16485.9391ms
+2025-05-16 12:43:21.754 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/1 - null null
+2025-05-16 12:43:21.823 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 12:43:21.826 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-16 12:43:21.829 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/{HeadquarterId:int}'
+2025-05-16 12:43:47.860 -05:00 [INF] Handling GetHeadquarterByIdQuery
+2025-05-16 12:43:47.860 -05:00 [INF] Property HeadquarterId : 1
+2025-05-16 12:43:49.939 -05:00 [ERR] Failed executing DbCommand (1,767ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Codigo], [t].[Descripcion], [t].[Direccion], [t].[Fecha_Creacion], [t].[Identificacion], [t].[Moneda_Id], [t0].[Id], [t0].[Codigo], [t0].[Nombre]
+FROM [TbHeadquarters] AS [t]
+INNER JOIN [TbCurrency] AS [t0] ON [t].[Moneda_Id] = [t0].[Id]
+WHERE [t].[Id] = @__id_0
+2025-05-16 12:43:50.189 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Quala.SucursalService.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TbHeadquarters'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:875c0142-21f6-4de3-8ae7-d790cbb0973b
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TbHeadquarters'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:875c0142-21f6-4de3-8ae7-d790cbb0973b
+Error Number:208,State:1,Class:16
+2025-05-16 12:43:51.772 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/{HeadquarterId:int}'
+2025-05-16 12:43:52.515 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TbHeadquarters'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.FirstOrDefaultAsync(ISpecification`1 specification, CancellationToken cancellationToken)
+   at Quala.SucursalService.UseCases.Headquarters.GetById.GetHeadquarterByIdHandler.Handle(GetHeadquarterByIdQuery request, CancellationToken cancellationToken) in C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.UseCases\Headquarters\GetById\GetHeadquarterByIdHandler.cs:line 24
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Quala.SucursalService.Web.Headquarters.GetById.HandleAsync(HeadquartersByIdRequest request, CancellationToken ct) in C:\Repos\TestQualaSucursalService\src\Quala.SucursalService.Web\Headquarters\GetById.cs:line 25
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:875c0142-21f6-4de3-8ae7-d790cbb0973b
+Error Number:208,State:1,Class:16
+2025-05-16 12:43:53.011 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/1 - 500 null text/plain; charset=utf-8 31257.5634ms
+2025-05-16 12:50:45.192 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter - null null
+2025-05-16 12:50:45.317 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 12:50:45.340 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter - 404 null null 161.3156ms
+2025-05-16 12:50:45.355 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/Headquarter, Response status code: 404
+2025-05-16 12:50:55.641 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Headquarter/List - null null
+2025-05-16 12:50:55.718 -05:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-05-16 12:50:55.719 -05:00 [INF] Executing endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 12:50:55.856 -05:00 [INF] Handling ListHeadquartersQuery
+2025-05-16 12:50:56.263 -05:00 [INF] Handled ListHeadquartersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Quala.SucursalService.UseCases.Headquarters.List.ListHeadquartersDto]] in 405 ms
+2025-05-16 12:50:56.490 -05:00 [INF] Executed endpoint 'HTTP: GET /Headquarter/List'
+2025-05-16 12:50:56.491 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Headquarter/List - 200 null application/json 849.2464ms

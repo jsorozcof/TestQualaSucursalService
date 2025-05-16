@@ -21,7 +21,7 @@ public class Upsert : Endpoint<UpsertHeadquarterRequest, ApiResponse<object>>
     AllowAnonymous();
     Summary(s =>
     {
-      s.Summary = "Permite gestionar un CRUD de sucursales para la empresa QUALA";
+      s.Summary = "Crear o modificar sucursales QUALA";
       s.Description = "";
     });
   }

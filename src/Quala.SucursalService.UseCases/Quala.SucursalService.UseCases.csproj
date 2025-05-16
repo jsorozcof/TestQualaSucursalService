@@ -2,12 +2,17 @@
 
   <ItemGroup>
     <PackageReference Include="Ardalis.Result" />
+    <PackageReference Include="AutoMapper" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Quala.SucursalService.Core\Quala.SucursalService.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Headquarters\Delete\" />
   </ItemGroup>
 
 </Project>
